@@ -6,5 +6,6 @@ import java.lang.annotation.Target;
 
 @Target({java.lang.annotation.ElementType.METHOD, java.lang.annotation.ElementType.CONSTRUCTOR, java.lang.annotation.ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Lock {
+public @interface Lock
+{
 }

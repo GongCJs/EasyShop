@@ -1456,8 +1456,8 @@ public class CartViewAction {
 				byte[] imgs = QRCodeEncoderHandler.createQRCode(codeUrl);
 
 				String urls = request.getSession().getServletContext().getRealPath("/")+this.configService.getSysConfig().getUploadFilePath()
-						+ File.separator + "weixin_qr" + File.separator + "wxpay"
-						+ File.separator;
+						+ java.io.File.separator + "weixin_qr" + java.io.File.separator + "wxpay"
+						+ java.io.File.separator;
 				// 图片的实际路径
 				String imgfile = urls + order_id + ".png";
 				

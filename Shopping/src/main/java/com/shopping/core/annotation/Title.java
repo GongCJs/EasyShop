@@ -10,6 +10,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-public @interface Title {
-	public abstract String value();
+public @interface Title
+{
+  public abstract String value();
 }

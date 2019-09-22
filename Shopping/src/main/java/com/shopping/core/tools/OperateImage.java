@@ -94,7 +94,7 @@ public class OperateImage{
     		//读入文件  
             File file = new File(srcImagePath);  
             // 构造Image对象  
-            BufferedImage src = ImageIO.read(file);
+            BufferedImage src = javax.imageio.ImageIO.read(file);  
             int width = src.getWidth();  
             int height = src.getHeight();  
             // 缩小边长 
@@ -126,7 +126,7 @@ public class OperateImage{
     		//读入文件  
             File file = new File(srcImagePath);  
             // 构造Image对象  
-            BufferedImage src = ImageIO.read(file);
+            BufferedImage src = javax.imageio.ImageIO.read(file);  
             int width = src.getWidth();  
             int height = src.getHeight();  
             // 缩小边长 
@@ -159,7 +159,7 @@ public class OperateImage{
     		//读入文件  
             File file = new File(srcImagePath);  
             // 构造Image对象  
-            BufferedImage src = ImageIO.read(file);
+            BufferedImage src = javax.imageio.ImageIO.read(file);  
             int width = src.getWidth();  
             int height = src.getHeight();  
             // 放大边长
@@ -192,7 +192,7 @@ public class OperateImage{
     		//读入文件  
             File file = new File(srcImagePath);  
             // 构造Image对象  
-            BufferedImage src = ImageIO.read(file);
+            BufferedImage src = javax.imageio.ImageIO.read(file);  
             int width = src.getWidth();  
             int height = src.getHeight();  
             // 放大边长
@@ -225,7 +225,7 @@ public class OperateImage{
     		//读入文件  
             File file = new File(srcImagePath);  
             // 构造Image对象  
-            BufferedImage src = ImageIO.read(file);
+            BufferedImage src = javax.imageio.ImageIO.read(file);  
             // 放大边长
             BufferedImage tag = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);  
             //绘制放大后的图片

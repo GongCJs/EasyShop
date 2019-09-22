@@ -24,15 +24,13 @@ public class LoginAuthenticationFilter extends AuthenticationProcessingFilter {
 	@Autowired
 	private ISysConfigService configService;
 
-	@Override
 	public Authentication attemptAuthentication(HttpServletRequest request)
 			throws AuthenticationException {
 		String login_role = request.getParameter("login_role");
 		String shopping_view_type = CommUtil.null2String(request.getSession(
 				false).getAttribute("shopping_view_type"));
-		if ((login_role == null) || (login_role.equals(""))) {
+		if ((login_role == null) || (login_role.equals("")))
 			login_role = "user";
-		}
 		HttpSession session = request.getSession();
 		session.setAttribute("login_role", login_role);
 		session.setAttribute("ajax_login", Boolean.valueOf(CommUtil
@@ -61,12 +59,11 @@ public class LoginAuthenticationFilter extends AuthenticationProcessingFilter {
 			return getAuthenticationManager().authenticate(authRequest);
 		}
 		String username = "";
-		if (CommUtil.null2Boolean(request.getParameter("encode"))) {
+		if (CommUtil.null2Boolean(request.getParameter("encode")))
 			username = CommUtil.decode(obtainUsername(request)) + ","
 					+ login_role;
-		} else {
+		else
 			username = obtainUsername(request) + "," + login_role;
-		}
 		String password = obtainPassword(request);
 
 		if (this.configService.getSysConfig().isUc_bbs()) {
@@ -85,18 +82,16 @@ public class LoginAuthenticationFilter extends AuthenticationProcessingFilter {
 		return getAuthenticationManager().authenticate(authRequest);
 	}
 
-	@Override
 	protected void onSuccessfulAuthentication(HttpServletRequest request,
-											  HttpServletResponse response, Authentication authResult)
+			HttpServletResponse response, Authentication authResult)
 			throws IOException {
 		request.getSession(false).removeAttribute("verify_code");
 
 		super.onSuccessfulAuthentication(request, response, authResult);
 	}
 
-	@Override
 	protected void onUnsuccessfulAuthentication(HttpServletRequest request,
-												HttpServletResponse response, AuthenticationException failed)
+			HttpServletResponse response, AuthenticationException failed)
 			throws IOException {
 		String uri = request.getRequestURI();
 		super.onUnsuccessfulAuthentication(request, response, failed);

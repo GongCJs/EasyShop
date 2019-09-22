@@ -87,7 +87,7 @@ import com.shopping.pay.tenpay.util.XMLUtil;
      Set es = this.parameters.entrySet();
      Iterator it = es.iterator();
      while (it.hasNext()) {
-       Entry entry = (Entry)it.next();
+       Map.Entry entry = (Map.Entry)it.next();
        String k = (String)entry.getKey();
        String v = (String)entry.getValue();
        if ((!"sign".equals(k)) && (v != null) && (!"".equals(v))) {

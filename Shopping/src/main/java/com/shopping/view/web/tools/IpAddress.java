@@ -232,7 +232,7 @@
      ArrayList ret = new ArrayList();
      try {
        FileChannel fc = this.ipFile.getChannel();
-       MappedByteBuffer mbb = fc.map(MapMode.READ_ONLY, 0L,
+       MappedByteBuffer mbb = fc.map(FileChannel.MapMode.READ_ONLY, 0L, 
          this.ipFile.length());
        mbb.order(ByteOrder.LITTLE_ENDIAN);
  

@@ -128,7 +128,7 @@
        	KeyFactory keyf 				= KeyFactory.getInstance("RSA");
        	PrivateKey priKey 				= keyf.generatePrivate(priPKCS8);
 
-           Signature signature = Signature.getInstance(SIGN_ALGORITHMS);
+           java.security.Signature signature = java.security.Signature.getInstance(SIGN_ALGORITHMS);
 
            signature.initSign(priKey);
            signature.update( content.getBytes(input_charset) );
@@ -159,7 +159,7 @@
 	        byte[] encodedKey = Base64Wap.decode(ali_public_key);
 	        PublicKey pubKey = keyFactory.generatePublic(new X509EncodedKeySpec(encodedKey));
 		
-			Signature signature = Signature.getInstance(SIGN_ALGORITHMS);
+			java.security.Signature signature = java.security.Signature.getInstance(SIGN_ALGORITHMS);
 			
 			signature.initVerify(pubKey);
 			signature.update( content.getBytes(input_charset) );

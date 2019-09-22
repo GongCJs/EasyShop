@@ -131,9 +131,9 @@ public class StatManageAction {
 	public void execute() throws Exception {
 		List stats = this.storeStatService.query("select obj from StoreStat obj", null, -1, -1);
 		StoreStat stat = null;
-		if (stats.size() > 0) {
+		if (stats.size() > 0)
 			stat = (StoreStat) stats.get(0);
-		} else {
+		else {
 			stat = new StoreStat();
 		}
 		stat.setAddTime(new Date());
@@ -151,9 +151,9 @@ public class StatManageAction {
 		stat.setAll_user(this.statTools.query_all_user());
 		stat.setStore_update(this.statTools.query_update_store());
 		stat.setOrder_amount(BigDecimal.valueOf(this.statTools.query_all_amount()));
-		if (stats.size() > 0) {
+		if (stats.size() > 0)
 			this.storeStatService.update(stat);
-		} else {
+		else {
 			this.storeStatService.save(stat);
 		}
 		cal.setTime(new Date());
@@ -290,9 +290,8 @@ public class StatManageAction {
 					ship_evaluate_halfyear_count2++;
 				}
 				if ((CommUtil.null2Double(eva.getShip_evaluate()) < 0.0D)
-						|| (CommUtil.null2Double(eva.getShip_evaluate()) >= 1.0D)) {
+						|| (CommUtil.null2Double(eva.getShip_evaluate()) >= 1.0D))
 					continue;
-				}
 				ship_evaluate_halfyear_count1++;
 			}
 
@@ -307,9 +306,9 @@ public class StatManageAction {
 			List sps = this.storePointService
 					.query("select obj from StorePoint obj where obj.store.id=:store_id", params, -1, -1);
 			StorePoint point = null;
-			if (sps.size() > 0) {
+			if (sps.size() > 0)
 				point = (StorePoint) sps.get(0);
-			} else {
+			else {
 				point = new StorePoint();
 			}
 			point.setStatTime(new Date());
@@ -336,9 +335,9 @@ public class StatManageAction {
 			point.setShip_evaluate_halfyear_count3(ship_evaluate_halfyear_count3);
 			point.setShip_evaluate_halfyear_count4(ship_evaluate_halfyear_count4);
 			point.setShip_evaluate_halfyear_count5(ship_evaluate_halfyear_count5);
-			if (sps.size() > 0) {
+			if (sps.size() > 0)
 				this.storePointService.update(point);
-			} else {
+			else {
 				this.storePointService.save(point);
 			}
 		}
@@ -621,12 +620,11 @@ public class StatManageAction {
 		params.put("weixin_status", Integer.valueOf(1));
 		List<Store> store_list = this.storeService
 				.query("select obj from Store obj where obj.weixin_status=:weixin_status", params, -1, -1);
-		for (Store store : store_list) {
+		for (Store store : store_list)
 			if (store.getWeixin_end_time().before(new Date())) {
 				store.setWeixin_status(2);
 				this.storeService.update(store);
 			}
-		}
 	}
 
 	private boolean send_email(OrderForm order, String mark) throws Exception {

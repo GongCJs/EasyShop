@@ -53,7 +53,7 @@ import com.shopping.pay.alipay.util.httpClient.HttpResultType;
    {
      NameValuePair[] nameValuePair = new NameValuePair[properties.size()];
      int i = 0;
-     for (Entry entry : properties.entrySet()) {
+     for (Map.Entry entry : properties.entrySet()) {
        nameValuePair[(i++)] = 
          new NameValuePair((String)entry.getKey(), 
          (String)entry.getValue());
